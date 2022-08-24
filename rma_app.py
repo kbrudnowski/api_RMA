@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 api = Api(app)
@@ -35,9 +36,25 @@ class Players(Resource):
     def get(self):
         return RMA_Players
 
+    def post(self):
+        data = request.json
+        PlayerId = len(RMA_Players.keys()) +1
+        RMA_Players[PlayerId] = {'name':data['name'] }
+        return RMA_Players
+
 class Player(Resource):
     def get(self, pk):
         return RMA_Players[pk]
+
+    def put(self, pk):
+        data = request.json
+        RMA_Players[pk]['name'] = data['name']
+        return RMA_Players
+
+    def delete(self, pk):
+        del RMA_Players[pk]
+        return RMA_Players
+
         
 api.add_resource(Players, '/')        
 api.add_resource(Player, '/<int:pk>')

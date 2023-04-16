@@ -19,7 +19,7 @@ RMA_Players = {
     10:{'name':'Luka Modric'},
     11:{'name':'Marco Asensio'},
     12:{'name':'Eduardo Camavinga'},
-    13:{'name':'Andrij Lunin'},
+    13:{'name':'Andriy Lunin'},
     14:{'name':'brak zawodnika'},
     15:{'name':'Federico Valverde'},
     16:{'name':'Alvaro Odriozola'},
